@@ -1,5 +1,9 @@
 ## dify-spring-boot-starter-examples
 
+[dify-spring-boot-starter](https://github.com/guoshiqiufeng/dify-spring-boot-starter)
+
+[dify-spring-boot-starter doc](https://guoshiqiufeng.github.io/dify-spring-boot-starter/en/)
+
 ### examples-all
 
 包含所有功能
