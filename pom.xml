@@ -46,6 +46,8 @@
         <module>examples-all</module>
         <module>examples-chat</module>
         <module>examples-dataset</module>
+        <module>examples-server</module>
+        <module>examples-workflow</module>
     </modules>
 
     <dependencyManagement>
