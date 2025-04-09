@@ -140,8 +140,8 @@ public class DatasetTest {
         List<DocumentMetaDataUpdateRequest.OperationData> operationDataList = new ArrayList<>();
         DocumentMetaDataUpdateRequest.OperationData operationData = new DocumentMetaDataUpdateRequest.OperationData();
         operationData.setDocumentId(documentId);
-        List<DocumentMetaDataUpdateRequest.MetaData> dataList = new ArrayList<>();
-        DocumentMetaDataUpdateRequest.MetaData metaData1 = new DocumentMetaDataUpdateRequest.MetaData();
+        List<MetaData> dataList = new ArrayList<>();
+        MetaData metaData1 = new MetaData();
         metaData1.setId("1");
         metaData1.setType("string");
         metaData1.setName("api test");
@@ -241,7 +241,7 @@ public class DatasetTest {
 
         documentCreateByFileRequest.setFile(file);
         documentCreateByFileRequest.setDocType(DocTypeEnum.others);
-        documentCreateByFileRequest.setDocMetadata(Map.of("key", "file"));
+        //documentCreateByFileRequest.setDocMetadata(Map.of("key", "file"));
         documentCreateByFileRequest.setIndexingTechnique(IndexingTechniqueEnum.HIGH_QUALITY);
         documentCreateByFileRequest.setDocForm(DocFormEnum.hierarchical_model);
         documentCreateByFileRequest.setDocLanguage("Chinese");
@@ -280,7 +280,7 @@ public class DatasetTest {
         documentCreateByTextRequest.setName("检测文本");
         documentCreateByTextRequest.setText("检测文本");
         documentCreateByTextRequest.setDocType(DocTypeEnum.others);
-        documentCreateByTextRequest.setDocMetadata(Map.of("key", "test"));
+        //documentCreateByTextRequest.setDocMetadata(Map.of("key", "test"));
         documentCreateByTextRequest.setIndexingTechnique(IndexingTechniqueEnum.HIGH_QUALITY);
         documentCreateByTextRequest.setDocForm(DocFormEnum.hierarchical_model);
         documentCreateByTextRequest.setDocLanguage("Chinese");
