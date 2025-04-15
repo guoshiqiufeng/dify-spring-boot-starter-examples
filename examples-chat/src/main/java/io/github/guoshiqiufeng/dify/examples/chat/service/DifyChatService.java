@@ -2,6 +2,7 @@ package io.github.guoshiqiufeng.dify.examples.chat.service;
 
 import io.github.guoshiqiufeng.dify.chat.DifyChat;
 import io.github.guoshiqiufeng.dify.chat.dto.request.ChatMessageSendRequest;
+import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendCompletionResponse;
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendResponse;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -20,8 +21,13 @@ public class DifyChatService {
     @Resource
     private DifyChat difyChat;
 
-    public Flux<ChatMessageSendResponse> sendChatMessageStream(ChatMessageSendRequest sendRequest) {
+    public Flux<ChatMessageSendCompletionResponse> sendChatMessageStream(ChatMessageSendRequest sendRequest) {
         // 可以进行自定义逻辑处理：参数转换、权限校验等
         return difyChat.sendChatMessageStream(sendRequest);
+    }
+
+    public ChatMessageSendResponse send(ChatMessageSendRequest sendRequest) {
+        // 可以进行自定义逻辑处理：参数转换、权限校验等
+        return difyChat.send(sendRequest);
     }
 }

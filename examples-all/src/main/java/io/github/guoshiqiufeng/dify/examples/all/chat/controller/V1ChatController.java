@@ -2,6 +2,7 @@ package io.github.guoshiqiufeng.dify.examples.all.chat.controller;//package com.
 
 
 import io.github.guoshiqiufeng.dify.chat.dto.request.ChatMessageSendRequest;
+import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendCompletionResponse;
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendResponse;
 import io.github.guoshiqiufeng.dify.examples.all.chat.service.DifyChatService;
 import jakarta.annotation.Resource;
@@ -33,7 +34,7 @@ public class V1ChatController {
      *                    apikey 建议在数据库进行存储，前端调用时传智能体 id，从数据库查询
      */
     @PostMapping(value = "/completions", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<ChatMessageSendResponse> sendChatMessageStream(@RequestBody ChatMessageSendRequest sendRequest) {
+    public Flux<ChatMessageSendCompletionResponse> sendChatMessageStream(@RequestBody ChatMessageSendRequest sendRequest) {
         return difyChatService.sendChatMessageStream(sendRequest);
     }
 

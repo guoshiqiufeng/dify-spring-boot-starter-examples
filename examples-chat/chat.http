@@ -11,3 +11,15 @@ Content-Type: application/json
   "userId": "1562"
 }
 
+###
+POST http://localhost:8080/v1/chat/send
+Content-Type: application/json
+
+{
+  "conversationId": "",
+  "content": "hi",
+  "files": [],
+  "inputs": {},
+  "apiKey": "app-mrr2wxB6pNEwT4hYoNYubLd8",
+  "userId": "1562"
+}
