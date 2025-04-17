@@ -1,7 +1,0 @@
-server:
-  port: 8080
-
-dify:
-  url: http://192.168.1.150:80 # 服务端地址
-  dataset:
-    api-key: dataset-RElQVTSsCQlp0F91hGpZrLBn # 知识库 api-key
