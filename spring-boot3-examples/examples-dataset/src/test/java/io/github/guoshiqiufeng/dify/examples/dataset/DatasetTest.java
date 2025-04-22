@@ -16,6 +16,7 @@ import io.github.guoshiqiufeng.dify.dataset.enums.document.ModeEnum;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.IOUtils;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
@@ -27,7 +28,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author yanghq
@@ -41,7 +41,13 @@ public class DatasetTest {
 
     @Resource
     private DifyDataset dataset;
+    private static MultipartFile testFile;
 
+    @BeforeAll
+    public static void setup() throws IOException {
+        // Initialize test file that will be used in multiple tests
+        testFile = createTestFile("test.txt", MediaType.TEXT_PLAIN_VALUE);
+    }
 
     @Test
     public void test() throws InterruptedException, IOException {
@@ -55,9 +61,7 @@ public class DatasetTest {
         DocumentCreateResponse documentByText = createDocumentByText(datasetId);
         String documentId = documentByText.getDocument().getId();
 
-        MultipartFile multipartFile = getMultipartFile();
-
-        DocumentCreateResponse documentByFile = createDocumentByFile(datasetId, multipartFile);
+        DocumentCreateResponse documentByFile = createDocumentByFile(datasetId, testFile);
 
         String oldDocumentId = documentByFile.getDocument().getId();
 
@@ -77,7 +81,7 @@ public class DatasetTest {
         Thread.sleep(500);
         dataset.updateDocumentByText(documentUpdateByTextRequest);
 
-        updateDocumentByFile(datasetId, multipartFile, oldDocumentId);
+        updateDocumentByFile(datasetId, testFile, oldDocumentId);
 
 
         DocumentDeleteResponse documentDeleteResponse = dataset.deleteDocument(datasetId, oldDocumentId);
@@ -216,23 +220,6 @@ public class DatasetTest {
         log.info("doc page:{}", JSON.toJSONString(documentInfoDifyPageResult));
     }
 
-    private MultipartFile getMultipartFile() throws IOException {
-        String fileName = "test.txt";
-        InputStream inputStream = getClass().getClassLoader().getResourceAsStream(fileName);
-
-        // 2. 将文件内容读取为字节数组
-        return convertInputStreamToMultipartFile(inputStream, fileName, MediaType.TEXT_PLAIN_VALUE);
-    }
-
-    public static MultipartFile convertInputStreamToMultipartFile(
-            InputStream inputStream,
-            String filename,
-            String contentType) throws IOException {
-
-        byte[] bytes = IOUtils.toByteArray(inputStream); // 需要 Apache Commons IO
-        return new MockMultipartFile("file", filename, contentType, bytes);
-    }
-
     private DocumentCreateResponse createDocumentByFile(String datasetId, MultipartFile file) {
         DocumentCreateByFileRequest documentCreateByFileRequest = new DocumentCreateByFileRequest();
 
@@ -338,5 +325,20 @@ public class DatasetTest {
         DifyPageResult<DatasetResponse> page = dataset.page(datasetPageRequest);
 
         log.info("page:{}", JSON.toJSONString(page));
+    }
+
+    /**
+     * Create a test file for document upload tests
+     */
+    private static MultipartFile createTestFile(String fileName, String contentType) throws IOException {
+        InputStream inputStream = DatasetTest.class.getClassLoader().getResourceAsStream(fileName);
+        if (inputStream == null) {
+            // Create a simple file if the test.txt resource doesn't exist
+            String content = "This is a test file content for API testing.";
+            return new MockMultipartFile("file", fileName, contentType, content.getBytes());
+        }
+
+        byte[] bytes = IOUtils.toByteArray(inputStream);
+        return new MockMultipartFile("file", fileName, contentType, bytes);
     }
 }
