@@ -3,9 +3,7 @@ package io.github.guoshiqiufeng.dify.examples.dataset.controller;
 import com.alibaba.fastjson2.JSON;
 import io.github.guoshiqiufeng.dify.core.pojo.DifyPageResult;
 import io.github.guoshiqiufeng.dify.dataset.dto.request.*;
-import io.github.guoshiqiufeng.dify.dataset.dto.response.DocumentCreateResponse;
-import io.github.guoshiqiufeng.dify.dataset.dto.response.DocumentIndexingStatusResponse;
-import io.github.guoshiqiufeng.dify.dataset.dto.response.DocumentInfo;
+import io.github.guoshiqiufeng.dify.dataset.dto.response.*;
 import io.github.guoshiqiufeng.dify.examples.dataset.service.DifyDatasetService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
@@ -66,4 +64,14 @@ public class V1DatasetDocumentController {
                        @PathVariable("documentId") String documentId) {
         difyDatasetService.deleteDocument(datasetId, documentId);
     }
+
+    @GetMapping("/{datasetId}/{documentId}/pageSegment")
+    public SegmentResponse pageSegment(@PathVariable("datasetId") String datasetId,
+                                       @PathVariable("documentId") String documentId,
+                                       SegmentPageRequest segmentPageRequest) {
+        segmentPageRequest.setDatasetId(datasetId);
+        segmentPageRequest.setDocumentId(documentId);
+        return difyDatasetService.pageSegment(segmentPageRequest);
+    }
+
 }

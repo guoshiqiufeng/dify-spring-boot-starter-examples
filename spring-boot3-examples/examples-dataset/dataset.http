@@ -178,8 +178,12 @@ Content-Type: application/json
 --BOUNDARY--
 
 ### dataset document page
-GET http://localhost:8080/v1/dataset/document/page?datasetId=47774718-824d-4dd9-8469-9c3196b0d021
+GET http://localhost:8080/v1/dataset/document/page?datasetId=0103895a-cb68-400f-a838-781c2bff6280
 
 ### dataset document delete
 DELETE http://localhost:8080/v1/dataset/document/47774718-824d-4dd9-8469-9c3196b0d021/365b07b8-78c6-4489-915a-b1370893447c
+
+### pageSegment
+GET http://localhost:8080/v1/dataset/document/0103895a-cb68-400f-a838-781c2bff6280/5b8a5365-2397-458f-bccb-de503d74097b/pageSegment
+
 

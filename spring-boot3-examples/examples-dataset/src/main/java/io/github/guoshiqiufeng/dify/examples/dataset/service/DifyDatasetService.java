@@ -3,10 +3,7 @@ package io.github.guoshiqiufeng.dify.examples.dataset.service;
 import io.github.guoshiqiufeng.dify.core.pojo.DifyPageResult;
 import io.github.guoshiqiufeng.dify.dataset.DifyDataset;
 import io.github.guoshiqiufeng.dify.dataset.dto.request.*;
-import io.github.guoshiqiufeng.dify.dataset.dto.response.DatasetResponse;
-import io.github.guoshiqiufeng.dify.dataset.dto.response.DocumentCreateResponse;
-import io.github.guoshiqiufeng.dify.dataset.dto.response.DocumentIndexingStatusResponse;
-import io.github.guoshiqiufeng.dify.dataset.dto.response.DocumentInfo;
+import io.github.guoshiqiufeng.dify.dataset.dto.response.*;
 import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -62,6 +59,14 @@ public class DifyDatasetService {
 
     public void deleteDocument(String datasetId, String documentId) {
         difyDataset.deleteDocument(datasetId, documentId);
+    }
+
+    public SegmentResponse pageSegment(SegmentPageRequest request) {
+        return difyDataset.pageSegment(request);
+    }
+
+    public DifyPageResult<SegmentChildChunkResponse> pageSegmentChildChunk(SegmentChildChunkPageRequest request) {
+        return difyDataset.pageSegmentChildChunk(request);
     }
 
 }
