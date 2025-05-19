@@ -11,3 +11,35 @@ Content-Type: application/json
   "userId": "1562"
 }
 
+### 获取会话列表
+GET http://localhost:8080/v1/chat/conversations
+
+<> 2025-05-19T173129.200.json
+<> 2025-05-19T173022.200.json
+<> 2025-05-19T172825.200.json
+
+### 对话
+POST http://localhost:8080/v1/chat/completions
+Content-Type: application/json
+
+{
+  "conversationId": "",
+  "content": "hi",
+  "files": [],
+  "inputs": {},
+  "apiKey": "app-OTcT9pIoM9rpjbPIHmOn1dLP",
+  "userId": "test-12475"
+}
+
+<> 2025-05-19T172906.400.json
+<> 2025-05-19T172854.400.json
+
+### 删除会话
+DELETE http://localhost:8080/v1/chat/31b053a4-812d-4e69-ba17-d40eefeb00eb
+
+<> 2025-05-19T173123.200.txt
+
+### 停止响应
+POST http://localhost:8080/v1/chat/stop/ece474ea-14c2-476a-bd07-64a9eeb7fead
+
+<> 2025-05-19T173603.200.txt

@@ -2,15 +2,14 @@ package io.github.guoshiqiufeng.dify.examples.all.chat.controller;//package com.
 
 
 import io.github.guoshiqiufeng.dify.chat.dto.request.ChatMessageSendRequest;
+import io.github.guoshiqiufeng.dify.chat.dto.request.MessageConversationsRequest;
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendCompletionResponse;
-import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendResponse;
+import io.github.guoshiqiufeng.dify.chat.dto.response.MessageConversationsResponse;
+import io.github.guoshiqiufeng.dify.core.pojo.DifyPageResult;
 import io.github.guoshiqiufeng.dify.examples.all.chat.service.DifyChatService;
 import jakarta.annotation.Resource;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 
 
@@ -38,4 +37,23 @@ public class V1ChatController {
         return difyChatService.sendChatMessageStream(sendRequest);
     }
 
+    @PostMapping("/stop/{taskId}")
+    public String stopMessagesStream(@PathVariable String taskId) {
+        difyChatService.stopMessagesStream("app-OTcT9pIoM9rpjbPIHmOn1dLP",taskId,"test-12475");
+        return "ok";
+    }
+
+
+    @GetMapping("/conversations")
+    public DifyPageResult<MessageConversationsResponse> conversations(MessageConversationsRequest request) {
+        request.setApiKey("app-OTcT9pIoM9rpjbPIHmOn1dLP");
+        request.setUserId("test-12475");
+        return difyChatService.conversations(request);
+    }
+
+    @DeleteMapping("/{conversationId}")
+    public String deleteConversation(@PathVariable String conversationId) {
+        difyChatService.delete(conversationId, "app-OTcT9pIoM9rpjbPIHmOn1dLP", "test-12475");
+        return "ok";
+    }
 }

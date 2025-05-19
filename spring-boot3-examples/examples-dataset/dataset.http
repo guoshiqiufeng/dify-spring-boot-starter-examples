@@ -1,7 +1,7 @@
 ## chat
 
 ### dataset page
-GET http://localhost:8080/v1/dataset/page
+GET http://localhost:8080/v1/dataset/page?tagIds=f5ba2c69-d752-4e4c-9b6d-44404078cd54
 
 ### dataset create
 POST http://localhost:8080/v1/dataset

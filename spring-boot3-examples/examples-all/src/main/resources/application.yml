@@ -8,3 +8,6 @@ dify:
     password: 123456
   dataset:
     api-key: dataset-RElQVTSsCQlp0F91hGpZrLBn # 知识库 api-key
+logging:
+  level:
+    io.github.guoshiqiufeng: debug
