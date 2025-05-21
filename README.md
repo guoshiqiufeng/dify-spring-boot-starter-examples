@@ -17,7 +17,7 @@
 ### examples-dataset
 
 只包含知识库操作
-> 可查看 .http 请求示例、[DatasetTest.java测试用例](examples-dataset/src/test/java/io/github/guoshiqiufeng/dify/examples/dataset/DatasetTest.java)
+> 可查看 .http 请求示例、[DatasetTest.java测试用例](spring-boot3-examples/examples-dataset/src/test/java/io/github/guoshiqiufeng/dify/examples/dataset/DatasetTest.java)
 
 ### examples-server
 
