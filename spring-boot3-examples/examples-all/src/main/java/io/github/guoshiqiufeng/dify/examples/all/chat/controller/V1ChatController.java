@@ -39,7 +39,7 @@ public class V1ChatController {
 
     @PostMapping("/stop/{taskId}")
     public String stopMessagesStream(@PathVariable String taskId) {
-        difyChatService.stopMessagesStream("app-OTcT9pIoM9rpjbPIHmOn1dLP",taskId,"test-12475");
+        difyChatService.stopMessagesStream("app-OTcT9pIoM9rpjbPIHmOn1dLP", taskId, "test-12475");
         return "ok";
     }
 
