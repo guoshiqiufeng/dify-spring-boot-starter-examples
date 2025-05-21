@@ -1,0 +1,10 @@
+###
+POST http://localhost:8080/workflow/completions
+Content-Type: application/json
+
+{
+  "files": [],
+  "inputs": {},
+  "apiKey": "app-0M83umUpl8HN1mHjOBYPSa64",
+  "userId": "1562"
+}
