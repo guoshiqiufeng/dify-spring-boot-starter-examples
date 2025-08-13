@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+dify:
+  url: http://192.168.1.150:80 # 服务端地址
+  server:
+    email: 1f7f1@example.com
+    password: 123456
+  dataset:
+    api-key: dataset-LVRlTKcmIqzi4X6IV9NoMFyp # 知识库 api-key
+

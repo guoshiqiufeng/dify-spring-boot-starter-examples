@@ -81,8 +81,7 @@ public class DatasetTest {
         updateDocumentByFile(datasetId, multipartFile, oldDocumentId);
 
 
-        DocumentDeleteResponse documentDeleteResponse = dataset.deleteDocument(datasetId, oldDocumentId);
-        log.info("doc del:{}", JSON.toJSONString(documentDeleteResponse));
+        dataset.deleteDocument(datasetId, oldDocumentId);
 
         DocumentIndexingStatusRequest documentIndexingStatusRequest = new DocumentIndexingStatusRequest();
         documentIndexingStatusRequest.setDatasetId(datasetId);
@@ -101,8 +100,7 @@ public class DatasetTest {
 
         updateSegment(datasetId, documentId, segmentId);
 
-        SegmentDeleteResponse segmentDeleteResponse = dataset.deleteSegment(datasetId, documentId, segmentId);
-        log.info("segment delete:{}", JSON.toJSONString(segmentDeleteResponse));
+        dataset.deleteSegment(datasetId, documentId, segmentId);
 
         UploadFileInfoResponse uploadFileInfoResponse = dataset.uploadFileInfo(datasetId, documentId);
         log.info("upload file:{}", JSON.toJSONString(uploadFileInfoResponse));
