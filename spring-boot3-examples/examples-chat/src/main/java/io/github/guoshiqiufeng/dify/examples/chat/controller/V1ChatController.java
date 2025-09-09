@@ -2,15 +2,17 @@ package io.github.guoshiqiufeng.dify.examples.chat.controller;//package com.ltzk
 
 
 import io.github.guoshiqiufeng.dify.chat.dto.request.ChatMessageSendRequest;
+import io.github.guoshiqiufeng.dify.chat.dto.request.FilePreviewRequest;
+import io.github.guoshiqiufeng.dify.chat.dto.request.FileUploadRequest;
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendCompletionResponse;
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendResponse;
+import io.github.guoshiqiufeng.dify.chat.dto.response.FileUploadResponse;
 import io.github.guoshiqiufeng.dify.examples.chat.service.DifyChatService;
 import jakarta.annotation.Resource;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import reactor.core.publisher.Flux;
 
 
@@ -43,4 +45,24 @@ public class V1ChatController {
         return difyChatService.send(sendRequest);
     }
 
+    @PostMapping("/fileUpload")
+    public FileUploadResponse fileUpload(@RequestParam("file") MultipartFile file, @RequestParam("apiKey") String apiKey,
+                                         @RequestParam("userId") String userId) {
+        FileUploadRequest fileUploadRequest = new FileUploadRequest();
+        fileUploadRequest.setFile(file);
+        fileUploadRequest.setApiKey(apiKey);
+        fileUploadRequest.setUserId(userId);
+        return difyChatService.fileUpload(fileUploadRequest);
+    }
+
+
+    @GetMapping("/filePreview")
+    public void filePreview(FilePreviewRequest request, HttpServletResponse response) {
+        difyChatService.filePreview(request, response);
+    }
+
+    @GetMapping("/fileDownload")
+    public void fileDownload(FilePreviewRequest request, HttpServletResponse response) {
+        difyChatService.fileDownload(request, response);
+    }
 }
