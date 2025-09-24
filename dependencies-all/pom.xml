@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.5.5</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>io.github.guoshiqiufeng.dify.examples</groupId>
+    <artifactId>dependencies-all</artifactId>
+    <version>0.8.0</version>
+    <name>${project.artifactId}</name>
+    <description>${project.artifactId}</description>
+    <packaging>jar</packaging>
+
+    <url>https://github.com/guoshiqiufeng/dify-spring-boot-starter-examples</url>
+
+    <licenses>
+        <license>
+            <name>Apache 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>yanghq</id>
+            <name>fubluesky</name>
+            <email>fubluesky@foxmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/guoshiqiufeng/dify-spring-boot-starter-examples.git</url>
+        <connection>scm:git:https://github.com/guoshiqiufeng/dify-spring-boot-starter-examples.git</connection>
+        <developerConnection>scm:git:https://github.com/guoshiqiufeng/dify-spring-boot-starter-examples.git
+        </developerConnection>
+    </scm>
+    <properties>
+        <java.version>17</java.version>
+        <dify.version>1.4.3</dify.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.github.guoshiqiufeng.dify</groupId>
+                <artifactId>dify-bom</artifactId>
+                <version>${dify.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-core</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-client-spring5</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-client-spring6</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-support-chat</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-support-dataset</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-support-server</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-support-workflow</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot-starter</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot-starter-autoconfigure</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot-starter-chat</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot-starter-dataset</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot-starter-server</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot-starter-workflow</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot2-starter</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot2-starter-autoconfigure</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot2-starter-chat</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot2-starter-dataset</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot2-starter-server</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot2-starter-workflow</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+
+    </dependencies>
+</project>
