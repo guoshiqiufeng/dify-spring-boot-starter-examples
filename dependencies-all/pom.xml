@@ -40,7 +40,7 @@
     </scm>
     <properties>
         <java.version>17</java.version>
-        <dify.version>1.5.0</dify.version>
+        <dify.version>1.7.0</dify.version>
     </properties>
 
     <dependencyManagement>
@@ -153,5 +153,35 @@
             <version>${dify.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot4-starter</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot4-starter-autoconfigure</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot4-starter-chat</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot4-starter-dataset</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot4-starter-server</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-spring-boot4-starter-workflow</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
     </dependencies>
 </project>

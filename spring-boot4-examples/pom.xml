@@ -5,11 +5,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.5.5</version>
+        <version>4.0.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>io.github.guoshiqiufeng.dify.examples</groupId>
-    <artifactId>spring-boot3-examples</artifactId>
+    <artifactId>spring-boot4-examples</artifactId>
     <version>0.8.0</version>
     <name>${project.artifactId}</name>
     <description>${project.artifactId}</description>
@@ -44,10 +44,6 @@
 
     <modules>
         <module>examples-all</module>
-        <module>examples-chat</module>
-        <module>examples-dataset</module>
-        <module>examples-server</module>
-        <module>examples-workflow</module>
     </modules>
 
     <dependencyManagement>

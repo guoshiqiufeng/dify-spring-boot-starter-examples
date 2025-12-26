@@ -2,11 +2,9 @@ package io.github.guoshiqiufeng.dify.examples.all.chat.service;
 
 import io.github.guoshiqiufeng.dify.chat.DifyChat;
 import io.github.guoshiqiufeng.dify.chat.dto.request.ChatMessageSendRequest;
-import io.github.guoshiqiufeng.dify.chat.dto.request.FileUploadRequest;
 import io.github.guoshiqiufeng.dify.chat.dto.request.MessageConversationsRequest;
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendCompletionResponse;
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendResponse;
-import io.github.guoshiqiufeng.dify.chat.dto.response.FileUploadResponse;
 import io.github.guoshiqiufeng.dify.chat.dto.response.MessageConversationsResponse;
 import io.github.guoshiqiufeng.dify.core.pojo.DifyPageResult;
 import jakarta.annotation.Resource;
@@ -41,9 +39,5 @@ public class DifyChatService {
 
     public void delete(String conversationId, String apiKey, String userId) {
         difyChat.deleteConversation(conversationId, apiKey, userId);
-    }
-
-    public FileUploadResponse fileUpload(FileUploadRequest request) {
-        return difyChat.fileUpload(request);
     }
 }

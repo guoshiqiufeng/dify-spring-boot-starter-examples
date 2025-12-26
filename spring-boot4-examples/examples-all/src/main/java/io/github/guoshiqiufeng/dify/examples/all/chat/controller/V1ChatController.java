@@ -2,17 +2,14 @@ package io.github.guoshiqiufeng.dify.examples.all.chat.controller;//package com.
 
 
 import io.github.guoshiqiufeng.dify.chat.dto.request.ChatMessageSendRequest;
-import io.github.guoshiqiufeng.dify.chat.dto.request.FileUploadRequest;
 import io.github.guoshiqiufeng.dify.chat.dto.request.MessageConversationsRequest;
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendCompletionResponse;
-import io.github.guoshiqiufeng.dify.chat.dto.response.FileUploadResponse;
 import io.github.guoshiqiufeng.dify.chat.dto.response.MessageConversationsResponse;
 import io.github.guoshiqiufeng.dify.core.pojo.DifyPageResult;
 import io.github.guoshiqiufeng.dify.examples.all.chat.service.DifyChatService;
 import jakarta.annotation.Resource;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import reactor.core.publisher.Flux;
 
 
@@ -58,14 +55,5 @@ public class V1ChatController {
     public String deleteConversation(@PathVariable String conversationId) {
         difyChatService.delete(conversationId, "app-OTcT9pIoM9rpjbPIHmOn1dLP", "test-12475");
         return "ok";
-    }
-
-    @PostMapping("/fileUpload")
-    public FileUploadResponse fileUpload(@RequestParam("file") MultipartFile file) {
-        FileUploadRequest request = new FileUploadRequest();
-        request.setFile(file);
-        request.setApiKey("app-OTcT9pIoM9rpjbPIHmOn1dLP");
-        request.setUserId("test-12475");
-        return difyChatService.fileUpload(request);
     }
 }

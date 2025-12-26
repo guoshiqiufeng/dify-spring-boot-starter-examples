@@ -18,12 +18,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
         <dependency>
             <groupId>io.github.guoshiqiufeng.dify</groupId>
             <artifactId>dify-spring-boot2-starter</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-status</artifactId>
+        </dependency>
         <!--不使用dify-server 可以用 redis-->
         <!--        <dependency>-->
         <!--            <groupId>org.springframework.boot</groupId>-->
