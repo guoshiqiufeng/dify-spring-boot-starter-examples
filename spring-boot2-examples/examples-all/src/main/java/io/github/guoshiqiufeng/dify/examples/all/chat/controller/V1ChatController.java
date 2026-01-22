@@ -2,18 +2,17 @@ package io.github.guoshiqiufeng.dify.examples.all.chat.controller;//package com.
 
 
 import io.github.guoshiqiufeng.dify.chat.dto.request.ChatMessageSendRequest;
+import io.github.guoshiqiufeng.dify.chat.dto.request.TextToAudioRequest;
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendCompletionResponse;
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendResponse;
 import io.github.guoshiqiufeng.dify.examples.all.chat.service.DifyChatService;
 
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
 
 /**
@@ -40,4 +39,12 @@ public class V1ChatController {
         return difyChatService.sendChatMessageStream(sendRequest);
     }
 
+    @GetMapping("/textToAudio")
+    public String textToAudio(HttpServletResponse response) {
+        TextToAudioRequest request = new TextToAudioRequest();
+        request.setApiKey("app-SiCHU6I8RsWBODLJ1IpL8lsh");
+        request.setText("hello world");
+        difyChatService.textToAudio(response, request);
+        return "ok";
+    }
 }
