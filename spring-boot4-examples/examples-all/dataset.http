@@ -1,0 +1,185 @@
+## chat
+
+### dataset page
+GET http://localhost:8080/v1/dataset/page
+
+### dataset create
+POST http://localhost:8080/v1/dataset
+Content-Type: application/json
+
+{
+  "name": "api",
+  "description": "api",
+  "indexingTechnique": "HIGH_QUALITY",
+  "permission": "ONLY_ME",
+  "provider": "vendor",
+  "externalKnowledgeApiId": "",
+  "externalKnowledgeId": ""
+}
+
+### dataset delete
+DELETE http://localhost:8080/v1/dataset/e32be42d-1154-4b61-a119-fd44ec7e801a
+
+
+### dataset document create text
+POST http://localhost:8080/v1/dataset/document/text
+Content-Type: application/json
+
+{
+  "datasetId": "47774718-824d-4dd9-8469-9c3196b0d021",
+  "name": "api_test",
+  "text": "api_test",
+  "docType": "others",
+  "docMetadata": {},
+  "indexingTechnique": "high_quality",
+  "docForm": "hierarchical_model",
+  "docLanguage": "Chinese",
+  "processRule": {
+    "mode": "automatic"
+  },
+  "retrievalModel": {
+    "searchMethod": "hybrid_search",
+    "rerankingEnable": false,
+    "rerankingMode": "weighted_score",
+    "weights": {
+      "weightType": "customized",
+      "vectorSetting": {
+        "vectorWeight": 0.2,
+        "embeddingModelName": "bge-m3:latest",
+        "embeddingProviderName": "langgenius/ollama/ollama"
+      },
+      "keywordSetting": {
+        "keywordWeight": 0.8
+      }
+    },
+    "topK": 2,
+    "scoreThresholdEnabled": false,
+    "scoreThreshold": 0.5
+  },
+  "embeddingModel": "bge-m3:latest",
+  "embeddingModelProvider": "langgenius/ollama/ollama"
+}
+
+### dataset document create file
+POST http://localhost:8080/v1/dataset/document/file
+Content-Type: multipart/form-data; boundary=BOUNDARY
+
+--BOUNDARY
+Content-Disposition: form-data; name="file"; filename="test.txt"
+Content-Type: text/plain
+
+< ./test.txt
+
+--BOUNDARY
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "datasetId": "47774718-824d-4dd9-8469-9c3196b0d021",
+  "name": "file_api",
+  "docType": "others",
+  "docMetadata": {},
+  "indexingTechnique": "high_quality",
+  "docForm": "hierarchical_model",
+  "docLanguage": "Chinese",
+  "processRule": {
+    "mode": "automatic"
+  },
+  "retrievalModel": {
+    "searchMethod": "hybrid_search",
+    "rerankingEnable": false,
+    "weights": {
+      "weightType": "customized",
+      "vectorSetting": {
+        "vectorWeight": 0.2,
+        "embeddingModelName": "bge-m3:latest",
+        "embeddingProviderName": "langgenius/ollama/ollama"
+      },
+      "keywordSetting": {
+        "keywordWeight": 0.8
+      }
+    },
+    "topK": 2,
+    "scoreThresholdEnabled": false,
+    "scoreThreshold": 0.5
+  },
+  "embeddingModel": "bge-m3:latest",
+  "embeddingModelProvider": "langgenius/ollama/ollama"
+}
+--BOUNDARY--
+
+
+### dataset document update text
+PUT http://localhost:8080/v1/dataset/document/text
+Content-Type: application/json
+
+{
+  "datasetId": "47774718-824d-4dd9-8469-9c3196b0d021",
+  "documentId": "365b07b8-78c6-4489-915a-b1370893447c",
+  "name": "api_update",
+  "text": "api_update",
+  "docType": "others",
+  "docMetadata": {},
+  "indexingTechnique": "high_quality",
+  "docForm": "hierarchical_model",
+  "docLanguage": "Chinese",
+  "processRule": {
+    "mode": "automatic"
+  }
+}
+
+### dataset document update file
+PUT http://localhost:8080/v1/dataset/document/file
+Content-Type: multipart/form-data; boundary=BOUNDARY
+
+--BOUNDARY
+Content-Disposition: form-data; name="file"; filename="test.txt"
+Content-Type: text/plain
+
+< ./test.txt
+
+--BOUNDARY
+Content-Disposition: form-data; name="data"
+Content-Type: application/json
+
+{
+  "datasetId": "47774718-824d-4dd9-8469-9c3196b0d021",
+  "documentId": "6880e395-57d9-4f64-8b24-ab4f56f038c3",
+  "name": "file_api_update",
+  "docType": "others",
+  "docMetadata": {},
+  "indexingTechnique": "high_quality",
+  "docForm": "hierarchical_model",
+  "docLanguage": "Chinese",
+  "processRule": {
+    "mode": "automatic"
+  },
+  "retrievalModel": {
+    "searchMethod": "hybrid_search",
+    "rerankingEnable": false,
+    "weights": {
+      "weightType": "customized",
+      "vectorSetting": {
+        "vectorWeight": 0.5,
+        "embeddingModelName": "bge-m3:latest",
+        "embeddingProviderName": "langgenius/ollama/ollama"
+      },
+      "keywordSetting": {
+        "keywordWeight": 0.6
+      }
+    },
+    "topK": 2,
+    "scoreThresholdEnabled": false,
+    "scoreThreshold": 0.5
+  },
+  "embeddingModel": "bge-m3:latest",
+  "embeddingModelProvider": "langgenius/ollama/ollama"
+}
+--BOUNDARY--
+
+### dataset document page
+GET http://localhost:8080/v1/dataset/document/page?datasetId=47774718-824d-4dd9-8469-9c3196b0d021
+
+### dataset document delete
+DELETE http://localhost:8080/v1/dataset/document/47774718-824d-4dd9-8469-9c3196b0d021/365b07b8-78c6-4489-915a-b1370893447c
+

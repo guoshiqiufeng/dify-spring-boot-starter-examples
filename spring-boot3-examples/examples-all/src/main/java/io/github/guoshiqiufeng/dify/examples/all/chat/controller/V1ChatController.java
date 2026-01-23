@@ -6,6 +6,7 @@ import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendCompletionR
 import io.github.guoshiqiufeng.dify.chat.dto.response.DifyTextVO;
 import io.github.guoshiqiufeng.dify.chat.dto.response.FileUploadResponse;
 import io.github.guoshiqiufeng.dify.chat.dto.response.MessageConversationsResponse;
+import io.github.guoshiqiufeng.dify.client.integration.spring.file.DifyFileConverter;
 import io.github.guoshiqiufeng.dify.core.pojo.DifyPageResult;
 import io.github.guoshiqiufeng.dify.examples.all.chat.service.DifyChatService;
 import jakarta.annotation.Resource;
@@ -35,10 +36,10 @@ public class V1ChatController {
      *                    用户 id可以改为从上下文（token）获取，
      *                    apikey 建议在数据库进行存储，前端调用时传智能体 id，从数据库查询
      */
-    @PostMapping(value = "/completions", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-    public Flux<ChatMessageSendCompletionResponse> sendChatMessageStream(@RequestBody ChatMessageSendRequest sendRequest) {
-        return difyChatService.sendChatMessageStream2(sendRequest);
-    }
+//    @PostMapping(value = "/completions", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+//    public Flux<ChatMessageSendCompletionResponse> sendChatMessageStream(@RequestBody ChatMessageSendRequest sendRequest) {
+//        return difyChatService.sendChatMessageStream2(sendRequest);
+//    }
 
     @PostMapping("/stop/{taskId}")
     public String stopMessagesStream(@PathVariable String taskId) {
@@ -72,7 +73,7 @@ public class V1ChatController {
     @GetMapping("/textToAudio")
     public String textToAudio(HttpServletResponse response) {
         TextToAudioRequest request = new TextToAudioRequest();
-        request.setApiKey("app-key");
+        request.setApiKey("app-SiCHU6I8RsWBODLJ1IpL8lsh");
         request.setText("hello world");
         difyChatService.textToAudio(response, request);
         return "ok";
@@ -82,8 +83,8 @@ public class V1ChatController {
     public DifyTextVO audioToText(@RequestParam("file") MultipartFile file) {
         AudioToTextRequest request = new AudioToTextRequest();
         request.setUserId("1504");
-        request.setApiKey("app-key");
-        request.setFile(file);
+        request.setApiKey("app-SiCHU6I8RsWBODLJ1IpL8lsh");
+        request.setFile(DifyFileConverter.from(file));
         return difyChatService.audioToText(request);
     }
 }

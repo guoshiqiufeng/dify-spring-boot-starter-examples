@@ -7,6 +7,7 @@ import io.github.guoshiqiufeng.dify.chat.dto.request.FileUploadRequest;
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendCompletionResponse;
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendResponse;
 import io.github.guoshiqiufeng.dify.chat.dto.response.FileUploadResponse;
+import io.github.guoshiqiufeng.dify.client.integration.spring.file.DifyFileConverter;
 import io.github.guoshiqiufeng.dify.examples.chat.service.DifyChatService;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletResponse;
@@ -49,7 +50,7 @@ public class V1ChatController {
     public FileUploadResponse fileUpload(@RequestParam("file") MultipartFile file, @RequestParam("apiKey") String apiKey,
                                          @RequestParam("userId") String userId) {
         FileUploadRequest fileUploadRequest = new FileUploadRequest();
-        fileUploadRequest.setFile(file);
+        fileUploadRequest.setFile(DifyFileConverter.from(file));
         fileUploadRequest.setApiKey(apiKey);
         fileUploadRequest.setUserId(userId);
         return difyChatService.fileUpload(fileUploadRequest);

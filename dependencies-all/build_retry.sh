@@ -21,7 +21,7 @@ while true; do
             echo "错误：已达到最大重试次数 ($MAX_RETRIES)，退出。"
             exit 1
         fi
-        echo "构建失败，$((5 * 60)) 秒后重试..."
-        sleep $((5 * 60))  # 休眠 5 分钟
+        echo "构建失败，$((5 * 6)) 秒后重试..."
+        sleep $((5 * 6))  # 休眠 5 分钟
     fi
 done

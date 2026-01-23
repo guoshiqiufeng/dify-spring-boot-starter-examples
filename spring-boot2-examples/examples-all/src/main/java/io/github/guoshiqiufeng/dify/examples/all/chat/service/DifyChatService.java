@@ -8,9 +8,9 @@ import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendCompletionR
 import io.github.guoshiqiufeng.dify.chat.dto.response.ChatMessageSendResponse;
 
 import io.github.guoshiqiufeng.dify.chat.dto.response.DifyTextVO;
+import io.github.guoshiqiufeng.dify.client.core.response.ResponseEntity;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 

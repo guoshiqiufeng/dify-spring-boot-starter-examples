@@ -238,7 +238,7 @@ public class DatasetTest {
         documentCreateByFileRequest.setDatasetId(datasetId);
         // documentCreateByFileRequest.setName("文件测试");
 
-        documentCreateByFileRequest.setFile(file);
+        documentCreateByFileRequest.setFile(DifyFileConverter.from(file));
         documentCreateByFileRequest.setDocType(DocTypeEnum.others);
         //documentCreateByFileRequest.setDocMetadata(Map.of("key", "file"));
         documentCreateByFileRequest.setIndexingTechnique(IndexingTechniqueEnum.HIGH_QUALITY);

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.guoshiqiufeng.dify.examples</groupId>
+    <artifactId>java-examples</artifactId>
+    <version>1.0.0</version>
+    <name>${project.artifactId}</name>
+    <description>${project.artifactId}</description>
+    <packaging>pom</packaging>
+
+    <url>https://github.com/guoshiqiufeng/dify-spring-boot-starter-examples</url>
+
+    <licenses>
+        <license>
+            <name>Apache 2.0</name>
+            <url>https://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <id>yanghq</id>
+            <name>fubluesky</name>
+            <email>fubluesky@foxmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>https://github.com/guoshiqiufeng/dify-spring-boot-starter-examples.git</url>
+        <connection>scm:git:https://github.com/guoshiqiufeng/dify-spring-boot-starter-examples.git</connection>
+        <developerConnection>scm:git:https://github.com/guoshiqiufeng/dify-spring-boot-starter-examples.git
+        </developerConnection>
+    </scm>
+    <properties>
+        <java.version>8</java.version>
+    </properties>
+
+    <modules>
+        <module>default-examples</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.github.guoshiqiufeng.dify</groupId>
+                <artifactId>dify-bom</artifactId>
+                <version>2.0.0</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+</project>

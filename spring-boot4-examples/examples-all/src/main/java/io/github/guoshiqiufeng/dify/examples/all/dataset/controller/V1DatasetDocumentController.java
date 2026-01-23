@@ -33,7 +33,7 @@ public class V1DatasetDocumentController {
             @RequestPart("data") String data
     ) {
         DocumentCreateByFileRequest documentCreateByFileRequest = JSON.parseObject(data, DocumentCreateByFileRequest.class);
-        documentCreateByFileRequest.setFile(file);
+        documentCreateByFileRequest.setFile(DifyFileConverter.from(file));
         return difyDatasetService.createDocumentByFile(documentCreateByFileRequest);
     }
 
@@ -46,7 +46,7 @@ public class V1DatasetDocumentController {
     public DocumentCreateResponse updateDocumentByFile(@RequestPart("file") MultipartFile file,
                                                        @RequestPart("data") String data) {
         DocumentUpdateByFileRequest documentUpdateByFileRequest = JSON.parseObject(data, DocumentUpdateByFileRequest.class);
-        documentUpdateByFileRequest.setFile(file);
+        documentUpdateByFileRequest.setFile(DifyFileConverter.from(file));
         return difyDatasetService.updateDocumentByFile(documentUpdateByFileRequest);
     }
 

@@ -1,6 +1,7 @@
 package io.github.guoshiqiufeng.dify.examples.all.dataset.controller;
 
 import com.alibaba.fastjson2.JSON;
+//import io.github.guoshiqiufeng.dify.client.integration.spring.file.DifyFileConverter;
 import io.github.guoshiqiufeng.dify.core.pojo.DifyPageResult;
 import io.github.guoshiqiufeng.dify.dataset.dto.request.*;
 import io.github.guoshiqiufeng.dify.dataset.dto.response.DocumentCreateResponse;
@@ -27,28 +28,28 @@ public class V1DatasetDocumentController {
         return difyDatasetService.createDocumentByText(documentCreateByTextRequest);
     }
 
-    @PostMapping(path = "/file", consumes = "multipart/form-data")
-    public DocumentCreateResponse createDocumentByFile(
-            @RequestPart("file") MultipartFile file,
-            @RequestPart("data") String data
-    ) {
-        DocumentCreateByFileRequest documentCreateByFileRequest = JSON.parseObject(data, DocumentCreateByFileRequest.class);
-        documentCreateByFileRequest.setFile(file);
-        return difyDatasetService.createDocumentByFile(documentCreateByFileRequest);
-    }
+//    @PostMapping(path = "/file", consumes = "multipart/form-data")
+//    public DocumentCreateResponse createDocumentByFile(
+//            @RequestPart("file") MultipartFile file,
+//            @RequestPart("data") String data
+//    ) {
+//        DocumentCreateByFileRequest documentCreateByFileRequest = JSON.parseObject(data, DocumentCreateByFileRequest.class);
+//        documentCreateByFileRequest.setFile(DifyFileConverter.from(file));
+//        return difyDatasetService.createDocumentByFile(documentCreateByFileRequest);
+//    }
 
     @PutMapping("/text")
     public DocumentCreateResponse updateDocumentByText(@RequestBody DocumentUpdateByTextRequest documentCreateByTextRequest) {
         return difyDatasetService.updateDocumentByText(documentCreateByTextRequest);
     }
 
-    @PutMapping(path = "/file", consumes = "multipart/form-data")
-    public DocumentCreateResponse updateDocumentByFile(@RequestPart("file") MultipartFile file,
-                                                       @RequestPart("data") String data) {
-        DocumentUpdateByFileRequest documentUpdateByFileRequest = JSON.parseObject(data, DocumentUpdateByFileRequest.class);
-        documentUpdateByFileRequest.setFile(file);
-        return difyDatasetService.updateDocumentByFile(documentUpdateByFileRequest);
-    }
+//    @PutMapping(path = "/file", consumes = "multipart/form-data")
+//    public DocumentCreateResponse updateDocumentByFile(@RequestPart("file") MultipartFile file,
+//                                                       @RequestPart("data") String data) {
+//        DocumentUpdateByFileRequest documentUpdateByFileRequest = JSON.parseObject(data, DocumentUpdateByFileRequest.class);
+//        documentUpdateByFileRequest.setFile(DifyFileConverter.from(file));
+//        return difyDatasetService.updateDocumentByFile(documentUpdateByFileRequest);
+//    }
 
     @GetMapping("/page")
     public DifyPageResult<DocumentInfo> page(DatasetPageDocumentRequest datasetPageDocumentRequest) {

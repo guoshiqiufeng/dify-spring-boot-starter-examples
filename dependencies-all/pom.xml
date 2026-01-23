@@ -10,7 +10,7 @@
     </parent>
     <groupId>io.github.guoshiqiufeng.dify.examples</groupId>
     <artifactId>dependencies-all</artifactId>
-    <version>0.8.0</version>
+    <version>1.0.0</version>
     <name>${project.artifactId}</name>
     <description>${project.artifactId}</description>
     <packaging>jar</packaging>
@@ -40,7 +40,7 @@
     </scm>
     <properties>
         <java.version>17</java.version>
-        <dify.version>1.8.1</dify.version>
+        <dify.version>2.0.0</dify.version>
     </properties>
 
     <dependencyManagement>
@@ -63,12 +63,27 @@
         </dependency>
         <dependency>
             <groupId>io.github.guoshiqiufeng.dify</groupId>
-            <artifactId>dify-client-spring5</artifactId>
+            <artifactId>dify-client-core</artifactId>
             <version>${dify.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.guoshiqiufeng.dify</groupId>
-            <artifactId>dify-client-spring6</artifactId>
+            <artifactId>dify-client-integration-okhttp</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-client-integration-spring</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-client-codec-gson</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-client-codec-jackson</artifactId>
             <version>${dify.version}</version>
         </dependency>
         <dependency>
@@ -89,6 +104,21 @@
         <dependency>
             <groupId>io.github.guoshiqiufeng.dify</groupId>
             <artifactId>dify-support-workflow</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-status</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>spring-boot-starter-common</artifactId>
+            <version>${dify.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.guoshiqiufeng.dify</groupId>
+            <artifactId>dify-java-starter</artifactId>
             <version>${dify.version}</version>
         </dependency>
         <dependency>

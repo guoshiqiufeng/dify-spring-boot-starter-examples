@@ -6,6 +6,7 @@ dify:
   server:
     email: admin@admin.com
     password: admin123456
+    password-encryption: true
   dataset:
     api-key: dataset-RElQVTSsCQlp0F91hGpZrLBn # 知识库 api-key
 
